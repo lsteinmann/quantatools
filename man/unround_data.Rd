@@ -9,6 +9,9 @@ unround_data(input, depth = 0.01)
 \arguments{
 \item{depth}{}
 }
+\value{
+
+}
 \description{
 Unrounding method
 }

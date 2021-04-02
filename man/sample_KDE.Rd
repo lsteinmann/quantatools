@@ -9,6 +9,9 @@ sample_KDE(kde, size = 1000)
 \arguments{
 \item{size}{}
 }
+\value{
+
+}
 \description{
 Sample from KDE distribution
 }

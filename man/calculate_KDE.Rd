@@ -9,6 +9,9 @@ calculate_KDE(data_input, band = 0.05)
 \arguments{
 \item{band}{}
 }
+\value{
+
+}
 \description{
 Get KDE distribution
 }

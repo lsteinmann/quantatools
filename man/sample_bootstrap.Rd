@@ -9,6 +9,9 @@ sample_bootstrap(x, decrease_by = 0)
 \arguments{
 \item{decrease_by}{}
 }
+\value{
+
+}
 \description{
 Get bootstrap sample
 }

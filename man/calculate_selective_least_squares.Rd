@@ -11,6 +11,9 @@ calculate_selective_least_squares(x, quanta)
 
 \item{quanta}{}
 }
+\value{
+
+}
 \description{
 
 }

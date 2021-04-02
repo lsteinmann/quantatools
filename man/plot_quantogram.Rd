@@ -9,6 +9,9 @@ plot_quantogram(df_results, sector_label)
 \arguments{
 \item{sector_label}{}
 }
+\value{
+
+}
 \description{
 Plot cosine quantogram
 }
