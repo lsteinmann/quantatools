@@ -1,17 +1,26 @@
 Package: quantatools
-Title: Analysis of quantum in archaeological data with cosine quantogram and related statistical methods
+Title: Analysis of quantum in archaeological data with cosine quantogram
+    and related statistical methods
 Version: 0.0.2
-Authors@R: person("Maciej", "Kasiński", email = "maciejkasinski@gmail.com", role = c("cre", "aut"))
 Date: 2021-04-01
+Authors@R: 
+    person(given = "Maciej",
+           family = "Kasinski",
+           role = c("cre", "aut"),
+           email = "maciejkasinski@gmail.com")
+Description: The package implements algorithms from cosine quantogram
+    related research
+License: MIT + file LICENSE
 URL: https://github.com/maciejkasinski/quantatools
-Description: The package implements algorithms from cosine quantogram related research
-Depends: R (>= 3.3.2)
-License: MIT 
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.1.1
+Depends: 
+    R (>= 3.3.2)
 Imports:
     dplyr,
     ggplot2
 Suggests:
-    KernSmooth
+    KernSmooth,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1

@@ -7,7 +7,11 @@
 get_quantum(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{A numeric vector of measurement values from which
+the quantogram should be calculated}
+}
+\value{
+The quantum of x
 }
 \description{
 Simply calculate a quantum

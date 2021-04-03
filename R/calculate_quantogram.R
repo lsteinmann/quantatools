@@ -2,13 +2,17 @@
 #'
 #' @param x A numeric vector of measurement values from which
 #' the quantogram should be calculated
-#' @param params cosine quantogram parameters
-#' including "RNG_START", "RNG_END", "STEP", "Q_MIN"
+#' @param params cosine quantogram parameters, standard parameters accessible
+#' with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+#' "STEP", "Q_MIN"
 #'
 #' @return a data frame with quanta and f(q)
 #' @export
 #'
 #' @examples
+#' data <- 0.37 * rep(seq(3, 6, 2), 3000)
+#' calculate_quantogram(data)
+
 calculate_quantogram <- function(x,
                                 params = getOption("CONSTANTS_QUANTOGRAM")) {
 
@@ -28,7 +32,8 @@ calculate_quantogram <- function(x,
                         FUN.VALUE = numeric(1),
                         FUN = function(y) get_fofq(try_q = y,
                                                    x = x,
-                                                   params = params))
+                                                   params = params,
+                                                   A = A))
   return(results)
 }
 
@@ -43,7 +48,7 @@ calculate_quantogram <- function(x,
 #' @export
 #'
 #' @examples
-get_fofq <- function(try_q, params, x) {
+get_fofq <- function(try_q, params, x, A) {
   q <- try_q
   if (q < params$Q_MIN) {
     f_q <- 0

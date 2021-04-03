@@ -10,12 +10,17 @@ calculate_quantogram(x, params = getOption("CONSTANTS_QUANTOGRAM"))
 \item{x}{A numeric vector of measurement values from which
 the quantogram should be calculated}
 
-\item{params}{cosine quantogram parameters
-including "RNG_START", "RNG_END", "STEP", "Q_MIN"}
+\item{params}{cosine quantogram parameters, standard parameters accessible
+with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+"STEP", "Q_MIN"}
 }
 \value{
-a
+a data frame with quanta and f(q)
 }
 \description{
 Calculate Kendall's cosine quantogram
+}
+\examples{
+data <- 0.37 * rep(seq(3, 6, 2), 3000)
+calculate_quantogram(data)
 }
