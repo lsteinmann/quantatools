@@ -1,0 +1,66 @@
+---
+title: "Workflow with quantatools"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Workflow with quantatools}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(quantatools)
+library(dplyr)
+library(ggplot2)
+```
+
+quantatools uses Kendalls quanta hunting algorithm to identify e.g. the base 
+measurement that was used when generating a sequence of lengths. 
+
+In this example, we would assume that the base measuement would have to be 0.37:
+
+```{r}
+data <- 0.37 * round(rnorm(n = 100, mean = 100, sd = 50), digits = 0)
+```
+
+The function `calculate_quantogram()` generates a data frame in which each 
+quantum in the column `q` is given a value (f(q) in column `f_q`) representing
+its probability to be the base measurement.
+
+```{r}
+calculate_quantogram(data) %>% 
+  head()
+```
+
+A basic plot if this dataframe can be produced with 
+
+```{r}
+calculate_quantogram(data) %>% 
+  plot_quantogram(title = "A Quantogram Plot")
+```
+The second peak that can be observed should be a 0.185, as the plotting function
+informs via message, as it is 0.37 / 2.
+
+With real world data:
+
+```{r}
+data(Erechtheion)
+calculate_quantogram(Erechtheion$Measurement_m) %>% 
+  plot_quantogram(title = "A Quantogram Plot of Measurements from the Erechtheion")
+```
+
+```{r}
+bootstrap_quanta(Erechtheion$Measurement_m)
+```
+
+
+
+
+
+

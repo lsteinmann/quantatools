@@ -1,14 +1,21 @@
-#' Get bootstrap sample
+#' Get sample data from x for bootstrap
 #'
-#' @param x
-#' @param decrease_by
+#' Returns a subset of the data decreased by the absolute value given in
+#' "decrese_by = ..."
 #'
-#' @return
+#' @param x vector, numeric. Original set of measurements
+#' @param decrease_by integer. A value that should be subtracted from the
+#' length of the original measurement vector (x)
+#'
+#' @return a sample of x decreased by `decrease_by`
 #' @export
 #'
 #' @examples
-sample_bootstrap = function(x, decrease_by=0) {
-  sample(size = length(x) - decrease_by,
-         x = x,
-         replace = T)
+#' x <- 1:100
+#' sample_of_x <- sample_bootstrap(x, decrease_by = 10)
+#' length(sample_of_x)
+sample_bootstrap <- function(x, decrease_by = 0) {
+  sample <- sample(size = length(x) - decrease_by,
+                   x = x, replace = T)
+  return(sample)
 }

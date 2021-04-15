@@ -4,12 +4,19 @@ Title: Analysis of quantum in archaeological data with cosine quantogram
 Version: 0.0.2
 Date: 2021-04-01
 Authors@R: 
-    person(given = "Maciej",
-           family = "Kasinski",
-           role = c("cre", "aut"),
-           email = "maciejkasinski@gmail.com")
-Description: The package implements algorithms from cosine quantogram
-    related research
+    c(person(given = "Maciej",
+             family = "Kasinski",
+             role = c("cre", "aut"),
+             email = "maciejkasinski@gmail.com"),
+      person(given = "Lisa",
+             family = "Steinmann",
+             role = "ctb",
+             email = "lisa.steinmann@rub.de"))
+Description: The quantatools-package implements algorithms from cosine
+    quantogram related research as proposed by D. G. Kendall in 1974. The
+    aim of the package is to provide tools for researchers looking to find
+    the base measurement unit (such as antique foot in building
+    measurements) from a set of measurements.
 License: MIT + file LICENSE
 URL: https://github.com/maciejkasinski/quantatools
 Depends: 
@@ -18,8 +25,13 @@ Imports:
     dplyr,
     ggplot2
 Suggests:
+    covr,
     KernSmooth,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

@@ -4,7 +4,7 @@
 \alias{plot_quantogram}
 \title{Plot cosine quantogram}
 \usage{
-plot_quantogram(df_results, sector_label)
+plot_quantogram(results = NULL, title = "Quantogram")
 }
 \arguments{
 \item{sector_label}{}
@@ -14,4 +14,10 @@ plot_quantogram(df_results, sector_label)
 }
 \description{
 Plot cosine quantogram
+}
+\examples{
+data("Erechtheion")
+set <- Erechtheion$Measurement_m
+results <- calculate_quantogram(set)
+plot_quantogram(results, title = "This is a Quantogram")
 }

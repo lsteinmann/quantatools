@@ -10,8 +10,11 @@ unround_data(input, depth = 0.01)
 \item{depth}{}
 }
 \value{
-
+input with more decimal numbers (randomized)
 }
 \description{
 Unrounding method
+}
+\examples{
+unround_data(c(1, 2, 3), depth = 0.01)
 }

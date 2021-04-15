@@ -21,6 +21,6 @@ a data frame with quanta and f(q)
 Calculate Kendall's cosine quantogram
 }
 \examples{
-data <- 0.37 * rep(seq(3, 6, 2), 3000)
+data <- 0.37 * rep(seq(3, 6, 2), 300)
 calculate_quantogram(data)
 }

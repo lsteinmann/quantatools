@@ -2,16 +2,25 @@
 % Please edit documentation in R/sample_bootstrap.R
 \name{sample_bootstrap}
 \alias{sample_bootstrap}
-\title{Get bootstrap sample}
+\title{Get sample data from x for bootstrap}
 \usage{
 sample_bootstrap(x, decrease_by = 0)
 }
 \arguments{
-\item{decrease_by}{}
+\item{x}{vector, numeric. Original set of measurements}
+
+\item{decrease_by}{integer. A value that should be subtracted from the
+length of the original measurement vector (x)}
 }
 \value{
-
+a sample of x decreased by `decrease_by`
 }
 \description{
-Get bootstrap sample
+Returns a subset of the data decreased by the absolute value given in
+"decrese_by = ..."
+}
+\examples{
+x <- 1:100
+sample_of_x <- sample_bootstrap(x, decrease_by = 10)
+length(sample_of_x)
 }

@@ -48,3 +48,4 @@ po/*~
 *hello*
 /testing*
 *_orig.R
+inst/doc

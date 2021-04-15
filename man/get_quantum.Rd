@@ -4,15 +4,21 @@
 \alias{get_quantum}
 \title{Simply calculate a quantum}
 \usage{
-get_quantum(x)
+get_quantum(x, fofq = FALSE)
 }
 \arguments{
 \item{x}{A numeric vector of measurement values from which
 the quantogram should be calculated}
+
+\item{fofq}{TRUE / FALSE: Include f(q) in output or not}
 }
 \value{
 The quantum of x
 }
 \description{
 Simply calculate a quantum
+}
+\examples{
+data <- 0.37 * rep(seq(3, 6, 2), 300)
+get_quantum(data)
 }

@@ -10,11 +10,10 @@
 #' @export
 #'
 #' @examples
-#' data <- 0.37 * rep(seq(3, 6, 2), 3000)
+#' data <- 0.37 * rep(seq(3, 6, 2), 300)
 #' calculate_quantogram(data)
-
 calculate_quantogram <- function(x,
-                                params = getOption("CONSTANTS_QUANTOGRAM")) {
+                                 params = getOption("CONSTANTS_QUANTOGRAM")) {
 
   if (4 != sum(c("RNG_START", "RNG_END", "STEP", "Q_MIN") %in% names(params))) {
     print("Incorrect number of parameters")
@@ -40,25 +39,28 @@ calculate_quantogram <- function(x,
 
 #' Calculate f(q)
 #'
-#' @param try_q
-#' @param params
-#' @param x
+#' Calculates the f(q) of a given quantum for all measurements (in x).
 #'
-#' @return
+#' @param try_q a quantum value
+#' @param params cosine quantogram parameters, standard parameters accessible
+#' with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+#' "STEP", "Q_MIN"
+#' @param x A numeric vector of measurement values from which
+#' the quantogram should be calculated
+#'
+#' @return f(q)
 #' @export
-#'
-#' @examples
 get_fofq <- function(try_q, params, x, A) {
   q <- try_q
   if (q < params$Q_MIN) {
     f_q <- 0
   } else {
-    sum = 0
+    sum <- 0
     e <- x %% q
     cosVal <- 2.0 * pi * e / q
     cosVal <- cos(cosVal)
     sum <- sum(cosVal)
-    f_q = A * sum
+    f_q <- A * sum
   }
   return(f_q)
 }
@@ -68,13 +70,21 @@ get_fofq <- function(try_q, params, x, A) {
 #'
 #' @param x A numeric vector of measurement values from which
 #' the quantogram should be calculated
+#' @param fofq TRUE / FALSE: Include f(q) in output or not
 #'
 #' @return The quantum of x
 #' @export
 #'
 #' @examples
-get_quantum = function(x) {
+#' data <- 0.37 * rep(seq(3, 6, 2), 300)
+#' get_quantum(data)
+get_quantum <- function(x, fofq = FALSE) {
   quantogram <- calculate_quantogram(x)
-  quantum <- quantogram$q[which.max(quantogram$f_q)]
-  return(quantum)
+  quantum <- quantogram[which(quantogram$f_q == max(quantogram$f_q)), ]
+  if (fofq) {
+    return(quantum)
+  } else {
+    return(quantum$q)
+  }
+
 }

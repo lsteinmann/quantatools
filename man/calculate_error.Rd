@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_error.R
 \name{calculate_error}
 \alias{calculate_error}
-\title{Get sample error given a quantum}
+\title{Get measurement error of a single sample given a quantum}
 \usage{
 calculate_error(input, quantum)
 }
@@ -12,5 +12,11 @@ calculate_error(input, quantum)
 \item{quantum}{numeric value of quantum}
 }
 \description{
-Get sample error given a quantum
+Calculates the difference between
+}
+\examples{
+real_error <- c(-0.03, -0.02, -0.01, 0.01, 0.02)
+quantum <- 0.325
+input <- (1:5 * quantum) + real_error
+calculate_error(input, quantum)
 }

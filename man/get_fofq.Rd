@@ -7,11 +7,18 @@
 get_fofq(try_q, params, x, A)
 }
 \arguments{
-\item{x}{}
+\item{try_q}{a quantum value}
+
+\item{params}{cosine quantogram parameters, standard parameters accessible
+with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+"STEP", "Q_MIN"}
+
+\item{x}{A numeric vector of measurement values from which
+the quantogram should be calculated}
 }
 \value{
-
+f(q)
 }
 \description{
-Calculate f(q)
+Calculates the f(q) of a given quantum for all measurements (in x).
 }
