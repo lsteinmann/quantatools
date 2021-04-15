@@ -6,7 +6,8 @@
 #' @param n_samples number of bootstrap samples
 #' @param sample_portion The portion (<1) of the original data that should
 #' be used for each sample
-#' @param params
+#' @param params Constants used in the quantum calculation,
+#' see getOption("CONSTANTS_QUANTOGRAM")
 #'
 #' @return a list containing the bootstrap plot, the original quanta, a
 #' dataframe with the bootstrap results and the confidence interval

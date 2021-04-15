@@ -9,11 +9,19 @@ selective_least_squares(x, title = "...", params = getOption("CONSTANTS_SLS"))
 \arguments{
 \item{x}{numeric vector of measurement values}
 
-\item{title}{}
+\item{title}{Title of the resulting plot}
+
+\item{params}{options (COnstants used in the selective least squares
+calculation, see getOption("CONSTANTS_SLS"))}
 }
 \value{
-
+a list containing the plot and the scores.
 }
 \description{
 Plot and calculate SLS results
+}
+\examples{
+selective_least_squares(x = c(1, 2, 3),
+title = "Title",
+params = getOption("CONSTANTS_SLS"))
 }

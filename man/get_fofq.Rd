@@ -15,6 +15,8 @@ with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
 
 \item{x}{A numeric vector of measurement values from which
 the quantogram should be calculated}
+
+\item{A}{Should be the sqrt(2 / length(measurement_vector))}
 }
 \value{
 f(q)
@@ -22,3 +24,4 @@ f(q)
 \description{
 Calculates the f(q) of a given quantum for all measurements (in x).
 }
+\keyword{internal}

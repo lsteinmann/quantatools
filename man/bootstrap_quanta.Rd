@@ -23,7 +23,8 @@ be used for each sample}
 
 \item{n_samples}{number of bootstrap samples}
 
-\item{params}{}
+\item{params}{Constants used in the quantum calculation,
+see getOption("CONSTANTS_QUANTOGRAM")}
 }
 \value{
 a list containing the bootstrap plot, the original quanta, a

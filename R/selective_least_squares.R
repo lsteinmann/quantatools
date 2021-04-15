@@ -1,13 +1,17 @@
 #' Plot and calculate SLS results
 #'
 #' @param x numeric vector of measurement values
-#' @param params
-#' @param title
+#' @param params options (COnstants used in the selective least squares
+#' calculation, see getOption("CONSTANTS_SLS"))
+#' @param title Title of the resulting plot
 #'
-#' @return
+#' @return a list containing the plot and the scores.
 #' @export
 #'
 #' @examples
+#' selective_least_squares(x = c(1, 2, 3),
+#' title = "Title",
+#' params = getOption("CONSTANTS_SLS"))
 selective_least_squares <- function(x,
                                     title = "...",
                                     params = getOption("CONSTANTS_SLS")) {
@@ -28,7 +32,8 @@ selective_least_squares <- function(x,
     scores[i, ] <- c(quantum_1, quantum_2, score)
   }
 
-  scores$new_score <- 1 / score ^ 2
+  new_score <- 1 / score ^ 2
+  scores$new_score <- new_score
 
   p <- ggplot2::ggplot(scores, ggplot2::aes(x = quantum_1, y = quantum_2,
                                             col = new_score,

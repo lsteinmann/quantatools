@@ -47,9 +47,11 @@ calculate_quantogram <- function(x,
 #' "STEP", "Q_MIN"
 #' @param x A numeric vector of measurement values from which
 #' the quantogram should be calculated
+#' @param A Should be the sqrt(2 / length(measurement_vector))
+#'
+#' @keywords internal
 #'
 #' @return f(q)
-#' @export
 get_fofq <- function(try_q, params, x, A) {
   q <- try_q
   if (q < params$Q_MIN) {

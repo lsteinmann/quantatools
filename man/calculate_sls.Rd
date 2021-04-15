@@ -7,9 +7,9 @@
 calculate_sls(measurements, quanta)
 }
 \arguments{
-\item{quanta}{a vector of quanta}
+\item{measurements}{numeric vector of measurement values}
 
-\item{x}{numeric vector of measurement values}
+\item{quanta}{a vector of quanta}
 }
 \value{
 

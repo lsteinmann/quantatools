@@ -2,7 +2,7 @@
 #'
 #'
 #'
-#' @param x numeric vector of measurement values
+#' @param measurements numeric vector of measurement values
 #' @param quanta a vector of quanta
 #'
 #' @return

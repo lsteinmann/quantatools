@@ -7,10 +7,12 @@
 plot_quantogram(results = NULL, title = "Quantogram")
 }
 \arguments{
-\item{sector_label}{}
+\item{results}{Resulting data.frame returned by calculate_quantogram(...)}
+
+\item{title}{Title of the plot}
 }
 \value{
-
+a plot object (ggplot2)
 }
 \description{
 Plot cosine quantogram

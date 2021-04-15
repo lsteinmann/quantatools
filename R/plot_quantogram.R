@@ -1,9 +1,9 @@
 #' Plot cosine quantogram
 #'
-#' @param df_results
-#' @param sector_label
+#' @param results Resulting data.frame returned by calculate_quantogram(...)
+#' @param title Title of the plot
 #'
-#' @return
+#' @return a plot object (ggplot2)
 #' @export
 #'
 #' @examples
@@ -27,7 +27,7 @@ plot_quantogram <- function(results = NULL,
 
   subtitle <- paste0("Peak in quantum = ", quantum)
 
-  p <- ggplot2::ggplot(results, ggplot2::aes(x = q, y = f_q)) +
+  p <- ggplot2::ggplot(results, ggplot2::aes(x = results$q, y = results$f_q)) +
     ggplot2::geom_line() +
     ggplot2::geom_point() +
     ggplot2::geom_hline(yintercept = 0, linetype = "dashed") +

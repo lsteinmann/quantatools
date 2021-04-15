@@ -1,7 +1,8 @@
 #' Unrounding method
 #'
-#' @param input
-#' @param depth
+#' @param input a numeric vector of values to be "unrounded"
+#' @param depth the value by which the fictional "unrounded" measurement can
+#' deviate
 #'
 #' @return input with more decimal numbers (randomized)
 #' @export

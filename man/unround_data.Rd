@@ -7,7 +7,10 @@
 unround_data(input, depth = 0.01)
 }
 \arguments{
-\item{depth}{}
+\item{input}{a numeric vector of values to be "unrounded"}
+
+\item{depth}{the value by which the fictional "unrounded" measurement can
+deviate}
 }
 \value{
 input with more decimal numbers (randomized)
