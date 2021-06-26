@@ -116,3 +116,16 @@ calculate_error(input = Erechtheion$Measurement_m,
                 quantum = get_quantum(Erechtheion$Measurement_m),
                 mean = TRUE)
 ```
+
+# Options / Base Parameters
+
+*quantatools* sets some base parameters on loading the package that are used for all calculations. These can be changed momentarily (for each session) by adjusting the options object. The options are stored in a list and can be modified by running the following code and simply adjusting the parameters:
+
+```{r eval = FALSE}
+options("CONSTANTS_QUANTOGRAM" = list(
+  RNG_START = 0.055,   # minimal threshold for search
+  RNG_END = 1.0,       # maximal threshold for search
+  STEP = 0.005,        # single step size
+  Q_MIN = 0.03)        # minimal possible quantum within threshold range
+)
+```

@@ -7,13 +7,15 @@
 #' `bootstrap_quanta()`, containing three lists: results = results of the
 #' bootstrapped samples, quanta = original quanta, confidence interval = the
 #' confidence interval.
+#' @param title Title of the Plot
+#' @param caption Caption of the Plot
 #' @param binwidth binwidth of the histogram (by default set to STEP used
 #' in global package options)
 #'
 #' @return A histogram with confidence intervals
 #' @export
 plot_bootstrap <- function(results,
-                           title = "Bootstraped Quanta",
+                           title = "Bootstrapped Quanta",
                            caption = NULL,
                            binwidth = getOption("CONSTANTS_QUANTOGRAM")$STEP) {
 

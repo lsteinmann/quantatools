@@ -2,22 +2,24 @@
 % Please edit documentation in R/plot_bootstrap.R
 \name{plot_bootstrap}
 \alias{plot_bootstrap}
-\title{Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)}
+\title{Plot a Histogram of the Bootstrapped Samples}
 \usage{
 plot_bootstrap(
   results,
-  original_quanta,
-  borders,
+  title = "Bootstrapped Quanta",
+  caption = NULL,
   binwidth = getOption("CONSTANTS_QUANTOGRAM")$STEP
 )
 }
 \arguments{
-\item{results}{result of the bootstrap sampling process within
-`bootstrap_quanta()`}
+\item{results}{result (list) of the bootstrap sampling process as returned by
+`bootstrap_quanta()`, containing three lists: results = results of the
+bootstrapped samples, quanta = original quanta, confidence interval = the
+confidence interval.}
 
-\item{original_quanta}{original quanta as returned by `get_quantum()`}
+\item{title}{Title of the Plot}
 
-\item{borders}{confidence interval}
+\item{caption}{Caption of the Plot}
 
 \item{binwidth}{binwidth of the histogram (by default set to STEP used
 in global package options)}
@@ -26,6 +28,6 @@ in global package options)}
 A histogram with confidence intervals
 }
 \description{
-Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)
+Plot a Histogram of the bootstrapped samples
 including lines for the confidence interval
 }

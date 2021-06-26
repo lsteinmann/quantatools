@@ -31,8 +31,8 @@ the measurements (T) or if they should be taken as is (F), defaults to TRUE.}
 see getOption("CONSTANTS_QUANTOGRAM")}
 }
 \value{
-a list containing the bootstrap plot, the original quanta, a
-dataframe with the bootstrap results and the confidence interval
+a list containing the original quanta, a data.frame with the
+bootstrap results and the confidence interval
 }
 \description{
 This function employs the Monte Carlo bootstrap method to determine the

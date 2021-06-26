@@ -2,13 +2,13 @@
 % Please edit documentation in R/calculate_quantogram.R
 \name{get_quantum}
 \alias{get_quantum}
-\title{Simply calculate a quantum}
+\title{Get a Quantum (single value) for a Set of Measurements}
 \usage{
 get_quantum(x, fofq = FALSE, unround = TRUE)
 }
 \arguments{
-\item{x}{A numeric vector of measurement values from which
-the quantogram should be calculated}
+\item{x}{A numeric vector of measurement values for which
+the quantum should be found}
 
 \item{fofq}{TRUE / FALSE: Include f(q) in output or not}
 
@@ -19,7 +19,7 @@ the measurements (T) or if they should be taken as is (F), defaults to TRUE.}
 The quantum of x
 }
 \description{
-Simply calculate a quantum
+Get a Quantum (single value) for a Set of Measurements
 }
 \examples{
 data <- 0.37 * rep(seq(3, 6, 2), 300)
