@@ -16,8 +16,8 @@
 #' @param params Constants used in the quantum calculation,
 #' see getOption("CONSTANTS_QUANTOGRAM")
 #'
-#' @return a list containing the bootstrap plot, the original quanta, a
-#' dataframe with the bootstrap results and the confidence interval
+#' @return a list containing the original quanta, a data.frame with the
+#' bootstrap results and the confidence interval
 #' @export
 #'
 #' @examples
@@ -72,13 +72,7 @@ bootstrap_quanta <- function(set = NULL,
   borders <- stats::quantile(results_all$q,
                              c((0 + confint / 2),
                                (1 - confint / 2)))
-  p <- plot_bootstrap(results = results_all,
-                      original_quanta = original_quanta,
-                      borders = borders,
-                      binwidth = params$STEP)
-  p
-  l <- list("plot" = p,
-            "quanta" = original_quanta,
+  l <- list("quanta" = original_quanta,
             "results" = results_all,
             "confidence interval" = borders)
   return(l)

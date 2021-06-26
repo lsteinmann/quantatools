@@ -88,9 +88,12 @@ The mean of all those measurements is `r round(mean(Erechtheion$Measurement_m / 
 
 With `bootstrap_quanta()` *quantatools* provides a way of determining the quantum using repeated resampling from the original data. The histogram will show the most probable quantum and its confidence intervals [@kubickaMetrologicalResearchMachu2020, 91].
 
+The results can be easily plotted with `plot_bootstrap()`, which expects an object as returned by `bootstrap_quanta()`
+
 ```{r}
 bootstr <- bootstrap_quanta(Erechtheion$Measurement_m, n_samples = 1000)
-bootstr$plot
+
+plot_bootstrap(bootstr)
 ```
 
 The list returned by `bootstrap_quanta()` will also show the quanta, individual results and confidence intervals:

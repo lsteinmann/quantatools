@@ -85,10 +85,10 @@ get_fofq <- function(try_q, params, x, A) {
 }
 
 
-#' Simply calculate a quantum
+#' Get a Quantum (single value) for a Set of Measurements
 #'
-#' @param x A numeric vector of measurement values from which
-#' the quantogram should be calculated
+#' @param x A numeric vector of measurement values for which
+#' the quantum should be found
 #' @param fofq TRUE / FALSE: Include f(q) in output or not
 #' @param unround TRUE/FALSE, declares if artificial noise should be added to
 #' the measurements (T) or if they should be taken as is (F), defaults to TRUE.

@@ -14,7 +14,7 @@ quantatools
 
 This package facilitates the analysis of quantum in archaeological data with cosine quantogram and related statistical methods. The main function is the implementation of Kendalls cosine quantogram in R. It is used to identify e.g. the base measurement that was used when generating a sequence of lengths, which can be helpful for archaeologists and architects working with building measurements or volumes looking to find the unit-variation that was used in the making of specific artifact groups. The package is suited to gather any base measurement of a number of measurements and is of course not restricted to these use cases. 
 
-The package was developed by Maciej Kasiński and its methods have been presented together with A. Kubicka in [an article in 2017](http://dx.doi.org/10.15496/publikation-43229).
+The package was developed by [Maciej Kasiński](https://github.com/maciejkasinski/quantatools) and its methods have been presented together with A. Kubicka in [an article in 2017](http://dx.doi.org/10.15496/publikation-43229). This version of quantatools has been reduced to the base functionality (compared to the [original repository](https://github.com/maciejkasinski/quantatools)) in order to ease documentation, maintainability and publication on CRAN. 
 
 Literature and other References
 ------------
