@@ -49,3 +49,4 @@ po/*~
 /testing*
 *_orig.R
 inst/doc
+lit/

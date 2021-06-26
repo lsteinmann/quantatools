@@ -5,12 +5,14 @@ vignette: >
   %\VignetteIndexEntry{Workflow with quantatools}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: references.bib
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 7
 )
 ```
 
@@ -20,47 +22,63 @@ library(dplyr)
 library(ggplot2)
 ```
 
-quantatools uses Kendalls quanta hunting algorithm to identify e.g. the base 
-measurement that was used when generating a sequence of lengths. 
+*quantatools* is an implementation for Kendall's quanta hunting algorithm [@kendallHuntingQuanta1974] in R. It is used to identify e.g. the base measurement that was used when generating a sequence of lengths, which can be helpful for archaeologists and architects working with building measurements or volumes looking to find the unit-variation that was used in the making of artifact groups. The package es suited to gather any base measurement of a number of measurements and is not restricted to these use cases.
 
-In this example, we would assume that the base measuement would have to be 0.37:
+# Example
+
+To demonstrate the packages functionality, we create a data set that has an approximate base measurement of 0.37:
 
 ```{r}
 data <- 0.37 * round(rnorm(n = 100, mean = 100, sd = 50), digits = 0)
 ```
 
-The function `calculate_quantogram()` generates a data frame in which each 
-quantum in the column `q` is given a value (f(q) in column `f_q`) representing
-its probability to be the base measurement.
+The function `calculate_quantogram()` generates a data frame in which each quantum in the column `q` is given a value (f(q) in column `f_q`) representing its probability to be the base measurement.
 
 ```{r}
 calculate_quantogram(data) %>% 
   head()
 ```
 
-A basic plot if this dataframe can be produced with 
+*quantatools* includes a plot method for this quantogram which produces plots such as the following:
 
 ```{r}
 calculate_quantogram(data) %>% 
   plot_quantogram(title = "A Quantogram Plot")
 ```
-The second peak that can be observed should be a 0.185, as the plotting function
-informs via message, as it is 0.37 / 2.
 
-With real world data:
+The second peak that can be observed should be a 0.185, as the plotting function informs via message, as it is 0.37 / 2. The quantum at which f(q) peaks is likely to be interpreted as the base measure of the original data. As we stated before, we created data that has a base measurement of 0.37, which is the result returned by this quantogram.
+
+# Erechtheion ("Real World Data")
+
+To test this with real data, we added Table 1 ("Erechtheion, Athens. Building dimension.") from @pakkanenDerivingAncientFoot2002 :
 
 ```{r}
-data(Erechtheion)
-calculate_quantogram(Erechtheion$Measurement_m) %>% 
+data("Erechtheion")
+Erechtheion
+```
+
+Calculating and plotting the quantogram for these measurements suggests that the underlying base measure should be about 0.325m:
+```{r echo = FALSE}
+Erechtheion_quant <- calculate_quantogram(Erechtheion$Measurement_m)
+```
+
+
+```{r}
+calculate_quantogram(Erechtheion$Measurement_m) %>%
   plot_quantogram(title = "A Quantogram Plot of Measurements from the Erechtheion")
 ```
+
+This roughly corresponds with the foot measure that could be estimated by dividing the actual measurements by the number of feet they should encompass according to the buildings inscriptions:
+
+```{r}
+Erechtheion$Measurement_m / Erechtheion$FeetAfterInscr
+```
+
+The mean of all those measurements is `r round(mean(Erechtheion$Measurement_m / Erechtheion$FeetAfterInscr), digits = 3)`, which is very close to our calculated 
+quantum of `r Erechtheion_quant$q[which.max(Erechtheion_quant$f_q)]`.
+
+# Bootstrapping
 
 ```{r}
 bootstrap_quanta(Erechtheion$Measurement_m)
 ```
-
-
-
-
-
-
