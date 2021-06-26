@@ -18,8 +18,8 @@
 #'   \item{Measurement_m}{Actual measurement in meter}
 #'   \item{Foot_m}{Length of foot that has been used for the measured object}
 #' }
-#' @source \url{J. Pakkanen, Deriving Ancient Foot Units from Building
+#' @source J. Pakkanen, Deriving Ancient Foot Units from Building
 #' Dimensions: a Statistical Approach Employing Cosine Quantogram
 #' Analysis, 2002, in: G. Burenhult (Ed.), Archaeological Informatics:
-#' Pushing the Envelope (Oxford 2002), 501--506 Table 1}
+#' Pushing the Envelope (Oxford 2002), 501--506 Table 1
 "Erechtheion"
