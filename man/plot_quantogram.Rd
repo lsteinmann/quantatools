@@ -4,12 +4,14 @@
 \alias{plot_quantogram}
 \title{Plot Cosine Quantogram}
 \usage{
-plot_quantogram(results = NULL, title = "Quantogram")
+plot_quantogram(results = NULL, title = "Quantogram", caption = NULL)
 }
 \arguments{
 \item{results}{Resulting data.frame returned by calculate_quantogram(...)}
 
 \item{title}{Title of the plot}
+
+\item{caption}{Caption of the plot}
 }
 \value{
 a plot object (ggplot2)

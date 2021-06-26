@@ -24,7 +24,7 @@ Pushing the Envelope (Oxford 2002), 501--506 Table 1}
 Erechtheion
 }
 \description{
-A dataset containing some measurements from the Eretheion in Athens.
+A dataset containing some measurements from the Erechtheion in Athens.
 This data was used in the publication referenced below and is a suitable
 test dataset for quantatools.
 }

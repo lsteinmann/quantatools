@@ -11,14 +11,11 @@ test_that("does not fail", {
 })
 
 
-set <- seq(0,1,0.1)
+set <- seq(0, 1, 0.1)
 
 test_that("informs of multiple quanta", {
   expect_message(
-    plot_quantogram(calculate_quantogram(set)),
+    plot_quantogram(calculate_quantogram(set, unround = FALSE)),
     "multiple"
     )
 })
-
-
-

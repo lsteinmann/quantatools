@@ -1,8 +1,8 @@
 Package: quantatools
 Title: Analysis of quantum in archaeological data with cosine quantogram
     and related statistical methods
-Version: 0.0.2
-Date: 2021-04-01
+Version: 0.0.3
+Date: 2021-06-26
 Authors@R: 
     c(person(given = "Maciej",
              family = "Kasinski",
@@ -22,11 +22,12 @@ URL: https://github.com/maciejkasinski/quantatools
 Depends: 
     R (>= 3.3.2)
 Imports:
-    dplyr,
+    stats,
     ggplot2,
     rlang
 Suggests:
     covr,
+    dplyr,
     KernSmooth,
     knitr,
     rmarkdown,

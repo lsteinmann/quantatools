@@ -4,13 +4,16 @@
 \alias{get_quantum}
 \title{Simply calculate a quantum}
 \usage{
-get_quantum(x, fofq = FALSE)
+get_quantum(x, fofq = FALSE, unround = TRUE)
 }
 \arguments{
 \item{x}{A numeric vector of measurement values from which
 the quantogram should be calculated}
 
 \item{fofq}{TRUE / FALSE: Include f(q) in output or not}
+
+\item{unround}{TRUE/FALSE, declares if artificial noise should be added to
+the measurements (T) or if they should be taken as is (F), defaults to TRUE.}
 }
 \value{
 The quantum of x

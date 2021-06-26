@@ -2,13 +2,14 @@
 % Please edit documentation in R/bootstrap_quanta.R
 \name{bootstrap_quanta}
 \alias{bootstrap_quanta}
-\title{Compute boostrap confidence interval}
+\title{Compute Boostrap Confidence Interval}
 \usage{
 bootstrap_quanta(
   set = NULL,
   sample_portion = 0.75,
   confint = 0.05,
   n_samples = 500,
+  unround = TRUE,
   params = getOption("CONSTANTS_QUANTOGRAM")
 )
 }
@@ -23,6 +24,9 @@ be used for each sample}
 
 \item{n_samples}{number of bootstrap samples}
 
+\item{unround}{TRUE/FALSE, declares if artificial noise should be added to
+the measurements (T) or if they should be taken as is (F), defaults to TRUE.}
+
 \item{params}{Constants used in the quantum calculation,
 see getOption("CONSTANTS_QUANTOGRAM")}
 }
@@ -31,7 +35,9 @@ a list containing the bootstrap plot, the original quanta, a
 dataframe with the bootstrap results and the confidence interval
 }
 \description{
-Compute boostrap confidence interval
+This function employs the Monte Carlo bootstrap method to determine the
+confidence interval that delimits the range of most possible quantums for
+a given set of measurements.
 }
 \examples{
 x <- rnorm(10) * 0.652

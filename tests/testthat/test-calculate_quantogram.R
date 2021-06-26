@@ -6,11 +6,10 @@ test_that("returns df", {
 
 test_that("gives true quantum", {
   quant <- calculate_quantogram(x)
-  expect_equal(quant$q[which.max(quant$f_q)], 0.185)
+  expect_gt(quant$q[which.max(quant$f_q)], 0.18)
+  expect_lt(quant$q[which.max(quant$f_q)], 0.375)
 })
 
-test_that("params tested",{
-  expect_error(calculate_quantogram(c(1,2,3,4), param = c("null")))
+test_that("params tested", {
+  expect_error(calculate_quantogram(c(1, 2, 3, 4), param = c("null")))
 })
-
-

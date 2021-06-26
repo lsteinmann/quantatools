@@ -2,23 +2,40 @@
 % Please edit documentation in R/calculate_quantogram.R
 \name{calculate_quantogram}
 \alias{calculate_quantogram}
-\title{Calculate Kendall's cosine quantogram}
+\title{Calculate Kendall's Cosine Quantogram}
 \usage{
-calculate_quantogram(x, params = getOption("CONSTANTS_QUANTOGRAM"))
+calculate_quantogram(
+  x,
+  unround = TRUE,
+  params = getOption("CONSTANTS_QUANTOGRAM")
+)
 }
 \arguments{
 \item{x}{A numeric vector of measurement values from which
 the quantogram should be calculated}
 
+\item{unround}{TRUE/FALSE, declares if artificial noise should be added to
+the measurements (T) or if they should be taken as is (F), defaults to TRUE.}
+
 \item{params}{cosine quantogram parameters, standard parameters accessible
-with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+with `getOption("CONSTANTS_QUANTOGRAM")`: "RNG_START", "RNG_END",
 "STEP", "Q_MIN"}
 }
 \value{
 a data frame with quanta and f(q)
 }
 \description{
-Calculate Kendall's cosine quantogram
+The cosine quantogram method was developed by David George Kendall (1974).
+Its aim is to determine a 'quantum' (i.e. a common base measure) of
+previously unknown size from a set of measurements (see D. G. Kendall,
+Hunting Quanta, Philosophical Transactions of the Royal Society of London.
+Mathematical and Physical Sciences A 276, 1974, 231--266).
+}
+\details{
+The method has already been implemented in archaeology and historical
+architecture (see e.g. J. Pakkanen, Deriving Ancient Foot Units from
+Building Dimensions: a Statistical Approach Employing Cosine Quantogram
+Analysis, 2002, doi: 10.15496/PUBLIKATION-3389).
 }
 \examples{
 data <- 0.37 * rep(seq(3, 6, 2), 300)

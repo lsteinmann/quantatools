@@ -11,9 +11,10 @@ test_that("error for sample portion above 1", {
                "less")
 })
 
-
 test_that("returns list", {
-  expect_message(bootstrap_quanta(set = c(1,2,3,4), sample_portion = 0.75),
+  expect_message(bootstrap_quanta(set = c(1, 2, 3, 4),
+                                  sample_portion = 0.75,
+                                  unround = FALSE),
                  "multiple")
 })
 

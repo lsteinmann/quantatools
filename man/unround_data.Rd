@@ -2,7 +2,7 @@
 % Please edit documentation in R/unround_data.R
 \name{unround_data}
 \alias{unround_data}
-\title{Unrounding method}
+\title{Unrounding Method}
 \usage{
 unround_data(input, depth = 0.01)
 }
@@ -16,7 +16,9 @@ deviate}
 input with more decimal numbers (randomized)
 }
 \description{
-Unrounding method
+As proposed by Kendall (1974) data may be 'unrounded' before calculating
+the quantogram by adding a random number between -0.005 and 0.005
+to produce artificial noise.
 }
 \examples{
 unround_data(c(1, 2, 3), depth = 0.01)

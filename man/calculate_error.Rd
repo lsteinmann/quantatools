@@ -2,14 +2,17 @@
 % Please edit documentation in R/calculate_error.R
 \name{calculate_error}
 \alias{calculate_error}
-\title{Get measurement error of a single sample given a quantum}
+\title{Get the Measurement Error of Samples Given a Known Quantum}
 \usage{
-calculate_error(input, quantum)
+calculate_error(input, quantum, mean = FALSE)
 }
 \arguments{
 \item{input}{numeric vector of measurement values}
 
 \item{quantum}{numeric value of quantum}
+
+\item{mean}{TRUE/FALSE: Should the mean (T) or the vector of all errors (F)
+be returned}
 }
 \description{
 Calculates the difference between
@@ -18,5 +21,6 @@ Calculates the difference between
 real_error <- c(-0.03, -0.02, -0.01, 0.01, 0.02)
 quantum <- 0.325
 input <- (1:5 * quantum) + real_error
-calculate_error(input, quantum)
+errors <- calculate_error(input, quantum)
+mean(errors)
 }

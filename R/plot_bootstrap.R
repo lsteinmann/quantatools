@@ -1,6 +1,6 @@
-#' Plots a Histogram of the bootstraped samples (within bootstrap_quanta)
+#' Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)
 #'
-#' Plots a Histogram of the bootstraped samples (within bootstrap_quanta)
+#' Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)
 #' including lines for the confidence interval
 #'
 #' @param results result of the bootstrap sampling process within
@@ -10,7 +10,7 @@
 #' @param binwidth binwidth of the histogram (by default set to STEP used
 #' in global package options)
 #'
-#' @return
+#' @return A histogram with confidence intervals
 #' @export
 plot_bootstrap <- function(results, original_quanta, borders,
                            binwidth = getOption("CONSTANTS_QUANTOGRAM")$STEP) {

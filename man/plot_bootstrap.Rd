@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_bootstrap.R
 \name{plot_bootstrap}
 \alias{plot_bootstrap}
-\title{Plots a Histogram of the bootstraped samples (within bootstrap_quanta)}
+\title{Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)}
 \usage{
 plot_bootstrap(
   results,
@@ -23,9 +23,9 @@ plot_bootstrap(
 in global package options)}
 }
 \value{
-
+A histogram with confidence intervals
 }
 \description{
-Plots a Histogram of the bootstraped samples (within bootstrap_quanta)
+Plots a Histogram of the bootstrapped samples (within bootstrap_quanta)
 including lines for the confidence interval
 }

@@ -32,10 +32,18 @@ To demonstrate the packages functionality, we create a data set that has an appr
 data <- 0.37 * round(rnorm(n = 100, mean = 100, sd = 50), digits = 0)
 ```
 
-The function `calculate_quantogram()` generates a data frame in which each quantum in the column `q` is given a value (f(q) in column `f_q`) representing its probability to be the base measurement.
+The data may be 'unrounded' before further processing to create a third decimal number and add some noise that will make the result more resistant to actual measurement errors or previous rounding errors [@kubickaMetrologicalResearchMachu2020, 90-91].
 
 ```{r}
-calculate_quantogram(data) %>% 
+data 
+
+unround_data(data)
+```
+
+The function `calculate_quantogram()` employs the unrounding automatically. It can be deactivated when setting "unround" to FALSE. The function generates a data frame in which each quantum in the column `q` is given a value (f(q) in column `f_q`) representing its probability to be the base measurement.
+
+```{r}
+calculate_quantogram(data, unround = TRUE) %>% 
   head()
 ```
 
@@ -58,10 +66,10 @@ Erechtheion
 ```
 
 Calculating and plotting the quantogram for these measurements suggests that the underlying base measure should be about 0.325m:
+
 ```{r echo = FALSE}
 Erechtheion_quant <- calculate_quantogram(Erechtheion$Measurement_m)
 ```
-
 
 ```{r}
 calculate_quantogram(Erechtheion$Measurement_m) %>%
@@ -74,11 +82,34 @@ This roughly corresponds with the foot measure that could be estimated by dividi
 Erechtheion$Measurement_m / Erechtheion$FeetAfterInscr
 ```
 
-The mean of all those measurements is `r round(mean(Erechtheion$Measurement_m / Erechtheion$FeetAfterInscr), digits = 3)`, which is very close to our calculated 
-quantum of `r Erechtheion_quant$q[which.max(Erechtheion_quant$f_q)]`.
+The mean of all those measurements is `r round(mean(Erechtheion$Measurement_m / Erechtheion$FeetAfterInscr), digits = 3)`, which is very close to our calculated quantum of `r Erechtheion_quant$q[which.max(Erechtheion_quant$f_q)]`.
 
 # Bootstrapping
 
+With `bootstrap_quanta()` *quantatools* provides a way of determining the quantum using repeated resampling from the original data. The histogram will show the most probable quantum and its confidence intervals [@kubickaMetrologicalResearchMachu2020, 91].
+
 ```{r}
-bootstrap_quanta(Erechtheion$Measurement_m)
+bootstr <- bootstrap_quanta(Erechtheion$Measurement_m, n_samples = 1000)
+bootstr$plot
+```
+
+The list returned by `bootstrap_quanta()` will also show the quanta, individual results and confidence intervals:
+
+```{r}
+bootstr$quanta
+head(bootstr$results)
+bootstr$`confidence interval`
+```
+
+# Measurement Errors
+
+In order to understand how good the quantum works on the data, *quantatools* provides a function which calculates the difference between the 'ideal' measurement and the real ones. These can be displayed as a vector of single deviations (`mean = FALSE`, default) or as the mean error across all measurements (`mean = TRUE`).
+
+```{r}
+calculate_error(input = Erechtheion$Measurement_m, 
+                quantum = get_quantum(Erechtheion$Measurement_m))
+
+calculate_error(input = Erechtheion$Measurement_m, 
+                quantum = get_quantum(Erechtheion$Measurement_m),
+                mean = TRUE)
 ```

@@ -17,10 +17,12 @@ a sample of x decreased by `decrease_by`
 }
 \description{
 Returns a subset of the data decreased by the absolute value given in
-"decrese_by = ..."
+"decrease_by = ..."
 }
 \examples{
+\dontrun{
 x <- 1:100
-sample_of_x <- sample_bootstrap(x, decrease_by = 10)
-length(sample_of_x)
+sampleofx <- sample_bootstrap(x, decrease_by = 10)
+length(sampleofx)}
 }
+\keyword{internal}

@@ -2,6 +2,7 @@
 #'
 #' @param results Resulting data.frame returned by calculate_quantogram(...)
 #' @param title Title of the plot
+#' @param caption Caption of the plot
 #'
 #' @return a plot object (ggplot2)
 #' @export
@@ -12,7 +13,8 @@
 #' results <- calculate_quantogram(set)
 #' plot_quantogram(results, title = "This is a Quantogram")
 plot_quantogram <- function(results = NULL,
-                            title = "Quantogram") {
+                            title = "Quantogram",
+                            caption = NULL) {
 
   quantum <- results[which(results$f_q == max(results$f_q)), ]
 
@@ -23,6 +25,10 @@ plot_quantogram <- function(results = NULL,
     quantum <- quantum$q[which.max(quantum$q)]
   } else {
     quantum <- quantum$q
+  }
+
+  if (is.null(caption)) {
+    caption <- " "
   }
 
   subtitle <- paste0("Peak in quantum = ", quantum)
@@ -36,6 +42,7 @@ plot_quantogram <- function(results = NULL,
     ggplot2::scale_x_continuous(breaks = seq(0, 1, 0.10)) +
     ggplot2::theme_minimal() +
     ggplot2::labs(title = title, subtitle = subtitle,
+                  caption = caption,
                   x = "quantum",
                   y = "quantogram.score (f(q))")
   return(p)

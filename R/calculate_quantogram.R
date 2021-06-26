@@ -1,10 +1,23 @@
-#' Calculate Kendall's cosine quantogram
+#' Calculate Kendall's Cosine Quantogram
+#'
+#' The cosine quantogram method was developed by David George Kendall (1974).
+#' Its aim is to determine a 'quantum' (i.e. a common base measure) of
+#' previously unknown size from a set of measurements (see D. G. Kendall,
+#' Hunting Quanta, Philosophical Transactions of the Royal Society of London.
+#' Mathematical and Physical Sciences A 276, 1974, 231--266).
+#'
+#' The method has already been implemented in archaeology and historical
+#' architecture (see e.g. J. Pakkanen, Deriving Ancient Foot Units from
+#' Building Dimensions: a Statistical Approach Employing Cosine Quantogram
+#' Analysis, 2002, doi: 10.15496/PUBLIKATION-3389).
 #'
 #' @param x A numeric vector of measurement values from which
 #' the quantogram should be calculated
 #' @param params cosine quantogram parameters, standard parameters accessible
-#' with `getOption("CONSTANTS_QUANTOGRAM")`, including "RNG_START", "RNG_END",
+#' with `getOption("CONSTANTS_QUANTOGRAM")`: "RNG_START", "RNG_END",
 #' "STEP", "Q_MIN"
+#' @param unround TRUE/FALSE, declares if artificial noise should be added to
+#' the measurements (T) or if they should be taken as is (F), defaults to TRUE.
 #'
 #' @return a data frame with quanta and f(q)
 #' @export
@@ -13,10 +26,15 @@
 #' data <- 0.37 * rep(seq(3, 6, 2), 300)
 #' calculate_quantogram(data)
 calculate_quantogram <- function(x,
+                                 unround = TRUE,
                                  params = getOption("CONSTANTS_QUANTOGRAM")) {
 
   if (4 != sum(c("RNG_START", "RNG_END", "STEP", "Q_MIN") %in% names(params))) {
     stop("Incorrect parameters")
+  }
+
+  if (unround) {
+    x <- unround_data(x)
   }
 
   A <- sqrt(2 / length(x))
@@ -72,6 +90,8 @@ get_fofq <- function(try_q, params, x, A) {
 #' @param x A numeric vector of measurement values from which
 #' the quantogram should be calculated
 #' @param fofq TRUE / FALSE: Include f(q) in output or not
+#' @param unround TRUE/FALSE, declares if artificial noise should be added to
+#' the measurements (T) or if they should be taken as is (F), defaults to TRUE.
 #'
 #' @return The quantum of x
 #' @export
@@ -79,8 +99,8 @@ get_fofq <- function(try_q, params, x, A) {
 #' @examples
 #' data <- 0.37 * rep(seq(3, 6, 2), 300)
 #' get_quantum(data)
-get_quantum <- function(x, fofq = FALSE) {
-  quantogram <- calculate_quantogram(x)
+get_quantum <- function(x, fofq = FALSE, unround = TRUE) {
+  quantogram <- calculate_quantogram(x, unround = unround)
   quantum <- quantogram[which(quantogram$f_q == max(quantogram$f_q)), ]
   if (fofq) {
     return(quantum)

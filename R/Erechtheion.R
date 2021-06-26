@@ -1,6 +1,6 @@
 #' Erechtheion: Test Measurements
 #'
-#' A dataset containing some measurements from the Eretheion in Athens.
+#' A dataset containing some measurements from the Erechtheion in Athens.
 #' This data was used in the publication referenced below and is a suitable
 #' test dataset for quantatools.
 #'
