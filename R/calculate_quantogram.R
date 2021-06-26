@@ -16,8 +16,7 @@ calculate_quantogram <- function(x,
                                  params = getOption("CONSTANTS_QUANTOGRAM")) {
 
   if (4 != sum(c("RNG_START", "RNG_END", "STEP", "Q_MIN") %in% names(params))) {
-    print("Incorrect number of parameters")
-    return(NULL)
+    stop("Incorrect parameters")
   }
 
   A <- sqrt(2 / length(x))

@@ -9,3 +9,16 @@ test_that("does not fail", {
 test_that("does not fail", {
   expect_error(plot_quantogram(c(1, 2, 3), title = "This is a Quantogram"))
 })
+
+
+set <- seq(0,1,0.1)
+
+test_that("informs of multiple quanta", {
+  expect_message(
+    plot_quantogram(calculate_quantogram(set)),
+    "multiple"
+    )
+})
+
+
+

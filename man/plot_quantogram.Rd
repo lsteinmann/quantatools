@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_quantogram.R
 \name{plot_quantogram}
 \alias{plot_quantogram}
-\title{Plot cosine quantogram}
+\title{Plot Cosine Quantogram}
 \usage{
 plot_quantogram(results = NULL, title = "Quantogram")
 }
@@ -15,7 +15,7 @@ plot_quantogram(results = NULL, title = "Quantogram")
 a plot object (ggplot2)
 }
 \description{
-Plot cosine quantogram
+Plot Cosine Quantogram
 }
 \examples{
 data("Erechtheion")
