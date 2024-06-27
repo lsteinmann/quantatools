@@ -8,7 +8,7 @@ test_that("plot produced", {
 
 test_that("caption empty", {
   p <- plot_bootstrap(bootstr)
-  expect_equal(p$labels$caption, " ")
+  expect_equal(p$labels$caption, "")
 })
 
 

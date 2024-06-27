@@ -16,13 +16,8 @@
 #' @export
 plot_bootstrap <- function(results,
                            title = "Bootstrapped Quanta",
-                           caption = NULL,
+                           caption = "",
                            binwidth = getOption("CONSTANTS_QUANTOGRAM")$STEP) {
-
-  if (is.null(caption)) {
-    caption <- " "
-  }
-
 
   original_quanta <- results$quanta
   borders <- results$`confidence interval`
