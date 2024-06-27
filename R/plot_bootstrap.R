@@ -29,9 +29,9 @@ plot_bootstrap <- function(results,
     ggplot2::geom_vline(data = original_quanta,
                         ggplot2::aes(xintercept = .data$q),
                         colour = "blue", linetype = "dotted",
-                        size = 1) +
+                        linewidth = 1) +
     ggplot2::geom_vline(xintercept = borders, colour = "red",
-                        linetype = "dashed", size = 1.5, alpha = 0.3) +
+                        linetype = "dashed", linewidth = 1.5, alpha = 0.3) +
     ggplot2::labs(x = "quantum estimation", title = title,
                   caption = caption,
                   subtitle = subtitle) +
