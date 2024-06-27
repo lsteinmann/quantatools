@@ -1,8 +1,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/quantatools)](https://CRAN.R-project.org/package=quantatools)
-[![R-CMD-check](https://github.com/lsteinmann/quantatools/workflows/R-CMD-check/badge.svg)](https://github.com/lsteinmann/quantatools/actions)
+[![R-CMD-check](https://github.com/lsteinmann/quantatools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lsteinmann/quantatools/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/lsteinmann/quantatools/branch/update/graph/badge.svg)](https://codecov.io/gh/lsteinmann/quantatools?branch=update)
-
 
 [![DOI](https://zenodo.org/badge/140330551.svg)](https://zenodo.org/badge/latestdoi/140330551)
 [![DOI](https://img.shields.io/static/v1?label=Publication&message=10.15496/publikation-43229&color=green)](http://dx.doi.org/10.15496/publikation-43229)
